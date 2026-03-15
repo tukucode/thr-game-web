@@ -39,6 +39,7 @@ declare module 'vue' {
     Navbar: typeof import('./components/shared/Navbar.vue')['default']
     NominalChip: typeof import('./components/setup/NominalChip.vue')['default']
     NominalForm: typeof import('./components/setup/NominalForm.vue')['default']
+    PwaInstallPrompt: typeof import('./components/PwaInstallPrompt.vue')['default']
     ResultModal: typeof import('./components/shared/ResultModal.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

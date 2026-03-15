@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Navbar from "@/components/shared/Navbar.vue";
+import PwaInstallPrompt from "@/components/PwaInstallPrompt.vue";
 import { Icon } from "@iconify/vue";
 </script>
 
@@ -7,6 +8,7 @@ import { Icon } from "@iconify/vue";
   <div class="min-h-screen font-sans">
     <Navbar />
     <RouterView />
+    <PwaInstallPrompt />
     <footer
       class="py-6 border-t border-border/40 bg-background/50 backdrop-blur"
     >
