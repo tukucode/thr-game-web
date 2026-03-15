@@ -42,7 +42,6 @@ onMounted(() => {
 
   // Force show prompt in debug mode
   if (isDebugMode) {
-    console.log("🚀 PWA: Debug mode active, forcing prompt");
     isAppleDevice.value = true;
     setTimeout(() => {
       showPrompt.value = true;
@@ -53,7 +52,6 @@ onMounted(() => {
 
   // Handle Apple Devices (iOS or Mac Safari have no beforeinstallprompt)
   if ((isIOS || (isMac && isSafari)) && !isStandalone) {
-    console.log("🍎 PWA: Apple device detected, showing manual instructions");
     isAppleDevice.value = true;
     setTimeout(() => {
       showPrompt.value = true;
@@ -61,9 +59,7 @@ onMounted(() => {
     }, 1500);
   } else if (!isStandalone) {
     // Handle Chrome/Android (standard beforeinstallprompt)
-    console.log("🌐 PWA: Listening for beforeinstallprompt event");
     window.addEventListener("beforeinstallprompt", (e) => {
-      console.log("📥 PWA: beforeinstallprompt event received");
       e.preventDefault();
       deferredPrompt.value = e as BeforeInstallPromptEvent;
       showPrompt.value = true;
@@ -72,7 +68,6 @@ onMounted(() => {
   }
 
   window.addEventListener("appinstalled", () => {
-    console.log("✅ PWA: App installed successfully");
     deferredPrompt.value = null;
     showPrompt.value = false;
   });
@@ -150,7 +145,7 @@ const dismissPrompt = () => {
           <h3
             class="font-extrabold text-lg text-foreground leading-tight mb-1.5 tracking-tight"
           >
-            {{ isAppleDevice ? "Instal THR Game 🍎" : "Pasang THR Game 🌙" }}
+            Instal THR Game
           </h3>
           <p
             class="text-xs text-muted-foreground/90 leading-relaxed font-medium"
@@ -215,20 +210,12 @@ const dismissPrompt = () => {
         </div>
       </div>
 
-      <div v-else class="flex items-center gap-3 z-10">
-        <button
-          @click="handleInstall"
-          class="flex-1 h-12 bg-primary text-primary-foreground font-bold rounded-2xl text-sm shadow-xl shadow-primary/30 hover:bg-primary/90 hover:scale-[1.02] active:scale-95 transition-all duration-300 flex items-center justify-center gap-2"
-        >
-          <Icon icon="lucide:download-cloud" class="w-5 h-5" />
+      <div v-else class="grid grid-cols-1 gap-3 z-10">
+        <Button @click="handleInstall">
           Pasang Sekarang
-        </button>
-        <button
-          @click="dismissPrompt"
-          class="px-5 h-12 bg-muted/40 text-muted-foreground font-semibold rounded-2xl text-sm hover:bg-muted/60 transition-colors"
-        >
-          Nanti Saja
-        </button>
+          <Icon icon="lucide:download-cloud" />
+        </Button>
+        <Button @click="dismissPrompt" variant="outline"> Nanti Saja </Button>
       </div>
     </div>
   </div>
