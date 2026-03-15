@@ -36,7 +36,7 @@ const options = [
   <div class="flex flex-col gap-6 w-full">
     <div class="flex items-center gap-3">
       <div
-        class="w-1.5 h-6 bg-primary rounded-full shadow-sm shadow-primary/20"
+        class="w-1 h-6 bg-primary rounded-full shadow-sm shadow-primary/20"
       ></div>
       <h3 class="text-lg font-extrabold text-foreground/90 tracking-tight">
         Pilih Mode Permainan
