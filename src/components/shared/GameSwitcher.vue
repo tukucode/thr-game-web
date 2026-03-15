@@ -21,7 +21,9 @@ const { config, switchGame } = useTHRStore();
         "
       >
         <Icon icon="lucide:mail" class="w-10 h-10 text-primary" />
-        <span class="font-bold text-sm tracking-wide">Kocok Amplop</span>
+        <span class="font-bold text-sm tracking-wide text-center"
+          >Kocok Amplop</span
+        >
         <div
           v-if="config.activeGame === 'kocok-amplop'"
           class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary animate-pulse"
@@ -38,7 +40,9 @@ const { config, switchGame } = useTHRStore();
         "
       >
         <Icon icon="lucide:diamond" class="w-10 h-10 text-primary" />
-        <span class="font-bold text-sm tracking-wide">Buka Kartu</span>
+        <span class="font-bold text-sm tracking-wide text-center"
+          >Buka Kartu</span
+        >
         <div
           v-if="config.activeGame === 'buka-kartu'"
           class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary animate-pulse"

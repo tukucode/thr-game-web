@@ -2,6 +2,7 @@
 import { useTHRStore } from "@/composables/useTHRStore";
 import { useRouter } from "vue-router";
 import { Icon } from "@iconify/vue";
+import { Button } from '@/components/ui/button'
 
 const { config } = useTHRStore();
 const router = useRouter();
@@ -33,13 +34,15 @@ const goHome = () => {
             config.activeGame.replace("-", " ")
           }}</strong>
         </span>
-        <button
+        <Button
           v-if="$route.path === '/game'"
           @click="goHome"
-          class="flex items-center gap-2 text-sm font-medium bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors px-3 py-1.5 rounded-md"
+          variant="secondary"
+          size="sm"
+          class="flex items-center gap-2"
         >
           <Icon icon="radix-icons:gear" class="w-4 h-4" /> Ubah Nominal
-        </button>
+        </Button>
       </div>
     </div>
   </header>

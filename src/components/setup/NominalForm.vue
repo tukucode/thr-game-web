@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from "vue";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
 
 const emit = defineEmits<{
   (e: "add", nominal: number): void;
@@ -36,26 +38,22 @@ const submit = () => {
   <form @submit.prevent="submit" class="flex flex-col gap-2">
     <div class="flex gap-2">
       <div class="relative flex-1 group">
-        <input
+        <Input
           v-model="formattedInput"
           type="text"
           inputmode="tel"
           placeholder="50.000"
           maxlength="15"
-          class="flex h-10 w-full rounded-md border border-input bg-background/50 backdrop-blur px-3 py-2 pl-[34px] text-base ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 transition-all font-medium"
+          class="pl-[34px] backdrop-blur transition-all font-medium"
         />
         <span
           class="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors pointer-events-none z-10"
           >Rp</span
         >
       </div>
-      <button
-        type="submit"
-        class="inline-flex items-center justify-center rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 bg-primary text-primary-foreground hover:bg-primary/90 h-10 px-4 py-2 hover:scale-105 active:scale-95"
-        :disabled="!rawInput"
-      >
+      <Button type="submit" variant="default" :disabled="!rawInput">
         Tambah
-      </button>
+      </Button>
     </div>
     <p v-if="error" class="text-xs text-destructive font-medium">{{ error }}</p>
   </form>
