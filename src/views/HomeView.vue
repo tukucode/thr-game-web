@@ -80,11 +80,10 @@ const startGame = () => {
               <Icon icon="lucide:sparkles" class="w-5 h-5 text-primary" />
             </div>
             <div class="flex flex-col items-start gap-0.5">
-              <span
-                class="text-xs font-bold uppercase tracking-[0.2em] text-primary/70"
+              <span class="text-base font-bold tracking-[0.1rem] text-primary"
                 >Informasi</span
               >
-              <span class="text-base font-bold text-foreground"
+              <span class="text-xs font-bold text-muted-foreground"
                 >Cara Bermain</span
               >
             </div>
@@ -217,13 +216,14 @@ const startGame = () => {
         <GameSwitcher />
       </section>
 
-      <Button @click="startGame" :disabled="config.nominals.length === 0">
-        <div
-          class="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-[150%] skew-x-[-20deg] group-hover:animate-[shimmer_2s_infinite]"
-        ></div>
-        <span class="flex items-center justify-center gap-2 relative z-10"
-          >Mulai Permainan <Icon icon="lucide:rocket" class="w-6 h-6"
-        /></span>
+      <Button
+        @click="startGame"
+        :disabled="config.nominals.length === 0"
+        variant="default"
+        size="lg"
+      >
+        Mulai Permainan
+        <Icon icon="lucide:rocket" class="w-6 h-6" />
       </Button>
     </div>
   </main>
