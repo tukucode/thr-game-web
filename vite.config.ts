@@ -20,12 +20,13 @@ export default defineConfig({
     }),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['favicon.svg', 'icons.svg', 'source/ketupat.png'],
+      includeAssets: ['favicon.svg', 'icons.svg', 'source/ketupat.png', 'source/splash.png'],
       manifest: {
         name: 'Game THR - Kocok Amplop & Buka Kartu',
         short_name: 'Game THR',
         description: 'Cara seru bagi-bagi THR online dengan permainan interaktif!',
-        theme_color: '#646cff',
+        theme_color: '#F3F1EF',
+        background_color: '#F3F1EF',
         icons: [
           {
             src: 'source/ketupat.png',
@@ -38,6 +39,9 @@ export default defineConfig({
             type: 'image/png'
           }
         ]
+      },
+      devOptions: {
+        enabled: true
       }
     })
   ],
