@@ -179,7 +179,7 @@ const startGame = () => {
         <div class="flex items-center gap-2 mb-4">
           <div class="w-1 h-6 bg-primary rounded-full"></div>
           <h2
-            class="text-xl font-bold flex items-center gap-2 text-foreground/90"
+            class="text-base font-bold flex items-center gap-2 text-foreground/90"
           >
             Daftar Nominal THR
           </h2>
