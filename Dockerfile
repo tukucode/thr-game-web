@@ -6,23 +6,21 @@ WORKDIR /app
 RUN apt-get update -qq && \
   apt-get install --no-install-recommends -y \
   bash \
-  vim \
-  tmux \
-  htop \
   curl \
   wget \
-  telnet \
-  dumb-init
-
-ENV NODE_ENV="production"
+  dumb-init && \
+  rm -rf /var/lib/apt/lists/*
 
 # --- Build Stage ---
 FROM base AS build
 
-# Copy package config and install dependencies using npm
+# Copy package config and install dependencies
 COPY package.json package-lock.json ./
-# For building Vite, we need devDependencies temporarily
-RUN npm ci --include=dev
+
+# Install ALL dependencies (including devDependencies) for the build
+# We use --legacy-peer-deps because Vite 8 is very new and some plugins
+# (like vite-plugin-pwa) might not have updated their peerDependency ranges yet.
+RUN npm ci --legacy-peer-deps
 
 # Copy the rest of the file and build the Vue SPA
 COPY . .
@@ -31,8 +29,8 @@ RUN npm run build
 # --- Production Stage ---
 FROM base
 
-# Cleanup apt caches from the base stage
-RUN rm -rf /var/lib/apt/lists /var/cache/apt/archives
+# Set production environment
+ENV NODE_ENV="production"
 
 # Install a simple static file server
 RUN npm install -g serve
