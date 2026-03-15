@@ -53,7 +53,7 @@ const play = () => {
         
         <!-- Uang -->
         <div class="absolute w-64 h-36 bg-[#C0D890]/20 rounded-md border border-[#90C078] shadow-[inset_0_0_20px_rgba(0,0,0,0.05)] p-4 flex flex-col items-center justify-center -translate-y-12 animate-in slide-in-from-bottom-12 duration-700 delay-150 fill-mode-both z-10 transform -rotate-3 hover:translate-y-[-56px] transition-transform backdrop-blur-sm">
-          <div class="text-[0.65rem] text-[#304830]/70 font-bold mb-1 tracking-widest uppercase">Republik Indonesia</div>
+          <div class="text-xs text-[#304830]/70 font-bold mb-1 tracking-widest uppercase">Republik Indonesia</div>
           <div class="text-3xl font-black text-[#304830] tracking-tight">{{ formatRupiah(nominal) }}</div>
           <Icon icon="lucide:banknote" class="mt-2 w-10 h-10 text-[#609060] opacity-50" />
         </div>

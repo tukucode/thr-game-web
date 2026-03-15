@@ -69,7 +69,7 @@ const selectCard = (index: number) => {
             <div v-if="i - 1 === winningIndex" class="flex flex-col items-center gap-2 sm:gap-3 text-center w-full">
               <Icon icon="lucide:party-popper" class="w-8 h-8 sm:w-10 sm:h-10 text-[#609060] animate-bounce filter drop-shadow-sm" style="animation-duration: 2s" />
               <div class="px-1 py-1 sm:px-2 sm:py-1.5 bg-[#90C078]/20 dark:bg-[#90C078]/30 rounded-md w-full border border-[#90C078]/30">
-                <span class="text-[0.60rem] sm:text-[0.65rem] block text-[#304830] dark:text-[#C0D890] uppercase tracking-widest mb-0.5">Selamat!</span>
+                <span class="text-[0.7rem] sm:text-xs block text-[#304830] dark:text-[#C0D890] uppercase tracking-widest mb-0.5">Selamat!</span>
                 <span class="text-xs sm:text-sm font-bold text-[#304830] dark:text-white leading-tight block truncate">
                   {{ formatRupiah(nominal) }}
                 </span>
@@ -78,7 +78,7 @@ const selectCard = (index: number) => {
             
             <div v-else class="flex flex-col items-center gap-2 text-muted-foreground opacity-60">
               <Icon icon="lucide:wind" class="w-8 h-8 sm:w-10 sm:h-10 grayscale opacity-80" />
-              <span class="text-[0.60rem] sm:text-[0.65rem] font-bold uppercase tracking-widest">Kosong</span>
+              <span class="text-[0.7rem] sm:text-xs font-bold uppercase tracking-widest">Kosong</span>
             </div>
           </div>
         </div>

@@ -31,7 +31,7 @@ const show = computed(() => store.isRevealed)
         </div>
         
         <h2 class="text-3xl font-extrabold tracking-tight text-foreground">Alhamdulillah!</h2>
-        <p class="text-muted-foreground text-sm font-medium">Anda berhak mendapatkan THR senilai:</p>
+        <p class="text-muted-foreground text-base font-medium">Anda berhak mendapatkan THR senilai:</p>
         
         <div class="my-4 relative w-full group">
           <div class="absolute inset-0 bg-green-400/20 blur-xl group-hover:bg-green-400/30 transition-colors rounded-2xl"></div>

@@ -43,7 +43,7 @@ const showTutorial = ref(false);
         >
         THR
       </h1>
-      <p class="text-muted-foreground text-base sm:text-lg max-w-md mx-auto">
+      <p class="text-muted-foreground text-sm sm:text-base md:text-lg max-w-md mx-auto leading-relaxed">
         Tentukan rincian nominal THR yang akan dimainkan. Tambahkan nominal
         secara bertahap di bawah ini.
       </p>
@@ -82,12 +82,12 @@ const showTutorial = ref(false);
           <div
             class="w-10 h-10 rounded-full bg-[#C0D890] flex items-center justify-center mb-3 shadow-inner"
           >
-            <Icon icon="lucide:plus-circle" class="w-6 h-6 text-[#304830]" />
+            <Icon icon="lucide:plus-circle" class="w-6 h-6 text-white" />
           </div>
-          <h3 class="text-sm font-bold text-[#304830] mb-1">
+          <h3 class="text-sm sm:text-base font-bold text-[#304830] mb-1">
             1. Masukkan Nominal
           </h3>
-          <p class="text-[0.7rem] text-muted-foreground leading-relaxed">
+          <p class="text-xs text-muted-foreground leading-relaxed">
             Daftarkan rincian uang THR yang ingin Anda bagikan ke dalam sistem.
           </p>
         </div>
@@ -98,12 +98,12 @@ const showTutorial = ref(false);
           <div
             class="w-10 h-10 rounded-full bg-[#C0D890] flex items-center justify-center mb-3 shadow-inner"
           >
-            <Icon icon="lucide:gamepad-2" class="w-6 h-6 text-[#304830]" />
+            <Icon icon="lucide:gamepad-2" class="w-6 h-6 text-white" />
           </div>
-          <h3 class="text-sm font-bold text-[#304830] mb-1">
+          <h3 class="text-sm sm:text-base font-bold text-[#304830] mb-1">
             2. Pilih Permainan
           </h3>
-          <p class="text-[0.7rem] text-muted-foreground leading-relaxed">
+          <p class="text-xs text-muted-foreground leading-relaxed">
             Tentukan jenis permainan yang paling berkesan untuk dibagikan.
           </p>
         </div>
@@ -112,14 +112,14 @@ const showTutorial = ref(false);
           class="flex flex-col items-center text-center p-4 rounded-2xl bg-white/50 backdrop-blur-sm border border-[#90C078]/30 shadow-sm text-balance"
         >
           <div
-            class="w-10 h-10 rounded-full bg-[#90C078] flex items-center justify-center mb-3 shadow-inner"
+            class="w-10 h-10 rounded-full bg-[#C0D890] flex items-center justify-center mb-3 shadow-inner"
           >
             <Icon icon="lucide:gift" class="w-6 h-6 text-white" />
           </div>
-          <h3 class="text-sm font-bold text-[#304830] mb-1">
+          <h3 class="text-sm sm:text-base font-bold text-[#304830] mb-1">
             3. Bagikan Kebahagiaan!
           </h3>
-          <p class="text-[0.7rem] text-muted-foreground leading-relaxed">
+          <p class="text-xs text-muted-foreground leading-relaxed">
             Mulai permainan dan biarkan keberuntungan menentukan hasilnya!
           </p>
         </div>
@@ -138,8 +138,7 @@ const showTutorial = ref(false);
         <h2
           class="text-xl font-bold mb-4 flex items-center gap-2 text-foreground/90"
         >
-          <Icon icon="lucide:banknote" class="w-6 h-6 text-primary" /> Daftar
-          Nominal THR
+          Daftar Nominal THR
         </h2>
         <NominalForm @add="addNominal" class="mb-6" />
 

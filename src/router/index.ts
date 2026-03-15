@@ -15,7 +15,10 @@ const router = createRouter({
       name: 'game',
       component: GameView
     }
-  ]
+  ],
+  scrollBehavior() {
+    return { top: 0 }
+  }
 })
 
 export default router
