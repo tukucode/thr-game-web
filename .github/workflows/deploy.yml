@@ -28,9 +28,14 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}
           port: "22"
           script: |
+            set -e
             cd /opt/tukucode
             docker compose pull web-gamethr
             docker compose stop web-gamethr
             docker compose up -d web-gamethr
             docker image prune -af
-            curl --silent --location --globoff "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage?chat_id=${{ secrets.TELEGRAM_CHAT_ID }}&text=[Game THR]%20Deploy%20success%20-%20Branch%20Main&message_thread_id=27"
+            curl --silent --show-error --fail --location \
+              --data-urlencode "chat_id=${{ secrets.TELEGRAM_CHAT_ID }}" \
+              --data-urlencode "text=[Game THR] Deploy success - Branch Main" \
+              --data-urlencode "message_thread_id=27" \
+              "https://api.telegram.org/bot${{ secrets.TELEGRAM_BOT_TOKEN }}/sendMessage"
