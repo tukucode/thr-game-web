@@ -59,7 +59,7 @@ const { config, switchGame } = useTHRStore();
             Pilih Mode
           </span>
           <span
-            class="text-[10px] uppercase font-bold tracking-widest text-primary"
+            class="text-[10px] font-bold tracking-widest text-primary"
             v-else
           >
             Aktif
@@ -116,7 +116,7 @@ const { config, switchGame } = useTHRStore();
             Pilih Mode
           </span>
           <span
-            class="text-[10px] uppercase font-bold tracking-widest text-primary"
+            class="text-[10px] font-bold tracking-widest text-primary"
             v-else
           >
             Aktif
