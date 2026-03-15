@@ -2,7 +2,7 @@
 import { useTHRStore } from "@/composables/useTHRStore";
 import { useRouter } from "vue-router";
 import { Icon } from "@iconify/vue";
-import { Button } from '@/components/ui/button'
+import { Button } from "@/components/ui/button";
 
 const { config } = useTHRStore();
 const router = useRouter();
@@ -30,7 +30,7 @@ const goHome = () => {
           class="text-xs text-muted-foreground hidden sm:inline-block"
         >
           Mode Permainan:
-          <strong class="text-foreground capitalize">{{
+          <strong class="text-primary capitalize">{{
             config.activeGame.replace("-", " ")
           }}</strong>
         </span>

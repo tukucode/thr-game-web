@@ -6,46 +6,128 @@ const { config, switchGame } = useTHRStore();
 </script>
 
 <template>
-  <div class="flex flex-col gap-3 w-full">
-    <h3 class="text-base font-semibold text-foreground/80">
-      Pilih Mode Permainan
-    </h3>
-    <div class="grid grid-cols-2 gap-4">
+  <div class="flex flex-col gap-4 w-full">
+    <div class="flex items-center gap-2">
+      <div class="w-1 h-6 bg-primary rounded-full"></div>
+      <h3
+        class="text-base font-extrabold text-foreground/90 tracking-tight uppercase"
+      >
+        Pilih Mode Permainan
+      </h3>
+    </div>
+
+    <div class="grid grid-cols-2 gap-5">
       <button
         @click="switchGame('kocok-amplop')"
-        class="flex flex-col items-center justify-center gap-3 rounded-xl border-2 p-5 transition-all text-left relative overflow-hidden"
+        class="group flex flex-col items-center justify-center gap-4 rounded-[2rem] border-2 p-6 transition-all duration-500 relative overflow-hidden backdrop-blur-md"
         :class="
           config.activeGame === 'kocok-amplop'
-            ? 'border-primary bg-primary/5 ring-4 ring-primary/20 scale-[1.02]'
-            : 'border-border bg-card hover:bg-accent hover:border-accent-foreground/20 hover:scale-[1.01] opacity-70 hover:opacity-100'
+            ? 'border-primary shadow-xl shadow-primary/10 bg-gradient-to-br from-primary/10 via-background to-card z-10 scale-[1.03]'
+            : 'border-border/60 bg-card hover:bg-muted/40 hover:border-primary/30 hover:scale-[1.01] opacity-60 hover:opacity-100'
         "
       >
-        <Icon icon="lucide:mail" class="w-10 h-10 text-primary" />
-        <span class="font-bold text-sm tracking-wide text-center"
-          >Kocok Amplop</span
-        >
+        <!-- Background Glow for Active State -->
         <div
           v-if="config.activeGame === 'kocok-amplop'"
-          class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary animate-pulse"
+          class="absolute -top-12 -right-12 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-pulse"
+        ></div>
+
+        <div
+          class="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:rotate-6 shadow-sm"
+          :class="
+            config.activeGame === 'kocok-amplop'
+              ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30'
+              : 'bg-muted/60 text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'
+          "
+        >
+          <Icon icon="lucide:mail" class="w-8 h-8" />
+        </div>
+
+        <div class="flex flex-col items-center gap-1">
+          <span
+            class="font-bold text-sm tracking-wide transition-colors duration-300"
+            :class="
+              config.activeGame === 'kocok-amplop'
+                ? 'text-foreground'
+                : 'text-muted-foreground group-hover:text-foreground'
+            "
+          >
+            Kocok Amplop
+          </span>
+          <span
+            class="text-[10px] uppercase font-bold tracking-widest text-primary/60 opacity-0 group-hover:opacity-100 transition-opacity"
+            v-if="config.activeGame !== 'kocok-amplop'"
+          >
+            Pilih Mode
+          </span>
+          <span
+            class="text-[10px] uppercase font-bold tracking-widest text-primary"
+            v-else
+          >
+            Aktif
+          </span>
+        </div>
+
+        <!-- Ripple/Shimmer effect on hover -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
         ></div>
       </button>
 
       <button
         @click="switchGame('buka-kartu')"
-        class="flex flex-col items-center justify-center gap-3 rounded-xl border-2 p-5 transition-all text-left relative overflow-hidden"
+        class="group flex flex-col items-center justify-center gap-4 rounded-[2rem] border-2 p-6 transition-all duration-500 relative overflow-hidden backdrop-blur-md"
         :class="
           config.activeGame === 'buka-kartu'
-            ? 'border-primary bg-primary/5 ring-4 ring-primary/20 scale-[1.02]'
-            : 'border-border bg-card hover:bg-accent hover:border-accent-foreground/20 hover:scale-[1.01] opacity-70 hover:opacity-100'
+            ? 'border-primary shadow-xl shadow-primary/10 bg-gradient-to-br from-primary/10 via-background to-card z-10 scale-[1.03]'
+            : 'border-border/60 bg-card hover:bg-muted/40 hover:border-primary/30 hover:scale-[1.01] opacity-60 hover:opacity-100'
         "
       >
-        <Icon icon="lucide:diamond" class="w-10 h-10 text-primary" />
-        <span class="font-bold text-sm tracking-wide text-center"
-          >Buka Kartu</span
-        >
+        <!-- Background Glow for Active State -->
         <div
           v-if="config.activeGame === 'buka-kartu'"
-          class="absolute top-2 right-2 w-2 h-2 rounded-full bg-primary animate-pulse"
+          class="absolute -top-12 -right-12 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-pulse"
+        ></div>
+
+        <div
+          class="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-500 group-hover:-rotate-6 shadow-sm"
+          :class="
+            config.activeGame === 'buka-kartu'
+              ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/30'
+              : 'bg-muted/60 text-muted-foreground group-hover:bg-primary/10 group-hover:text-primary'
+          "
+        >
+          <Icon icon="lucide:layout-template" class="w-8 h-8" />
+        </div>
+
+        <div class="flex flex-col items-center gap-1">
+          <span
+            class="font-bold text-sm tracking-wide transition-colors duration-300"
+            :class="
+              config.activeGame === 'buka-kartu'
+                ? 'text-foreground'
+                : 'text-muted-foreground group-hover:text-foreground'
+            "
+          >
+            Buka Kartu
+          </span>
+          <span
+            class="text-[10px] uppercase font-bold tracking-widest text-primary/60 opacity-0 group-hover:opacity-100 transition-opacity"
+            v-if="config.activeGame !== 'buka-kartu'"
+          >
+            Pilih Mode
+          </span>
+          <span
+            class="text-[10px] uppercase font-bold tracking-widest text-primary"
+            v-else
+          >
+            Aktif
+          </span>
+        </div>
+
+        <!-- Ripple/Shimmer effect on hover -->
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
         ></div>
       </button>
     </div>

@@ -3,6 +3,10 @@ import { ref, computed } from "vue";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+const props = defineProps<{
+  nominals: number[];
+}>();
+
 const emit = defineEmits<{
   (e: "add", nominal: number): void;
 }>();
@@ -29,6 +33,12 @@ const submit = () => {
     error.value = "Mohon masukkan nominal yang sah (contoh: 50.000)";
     return;
   }
+
+  if (props.nominals.includes(nominal)) {
+    error.value = "Nominal ini sudah ada di daftar!";
+    return;
+  }
+
   emit("add", nominal);
   rawInput.value = "";
 };

@@ -12,11 +12,18 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import {
+  Card,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 
 const { config, updateNominals } = useTHRStore();
 const router = useRouter();
 
 const addNominal = (nominal: number) => {
+  if (config.value.nominals.includes(nominal)) return;
   const newNominals = [...config.value.nominals, nominal];
   updateNominals(newNominals);
 };
@@ -60,84 +67,101 @@ const startGame = () => {
     <Accordion
       type="single"
       collapsible
-      class="mb-8 w-full max-w-sm mx-auto sm:max-w-none"
+      class="mb-10 w-full max-w-sm mx-auto sm:max-w-none"
     >
       <AccordionItem value="tutorial" class="border-none">
         <AccordionTrigger
-          class="w-full flex items-center justify-between p-4 rounded-2xl bg-card backdrop-blur-sm border border-primary/20 shadow-sm hover:bg-muted/60 transition-all group hover:no-underline"
+          class="w-full flex items-center justify-between p-5 rounded-3xl bg-card backdrop-blur-md border border-primary/10 shadow-sm hover:shadow-md hover:border-primary/30 hover:bg-muted/30 transition-all duration-300 group hover:no-underline"
         >
-          <div class="flex items-center gap-3 text-foreground">
+          <div class="flex items-center gap-4 text-foreground">
             <div
-              class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center"
+              class="w-10 h-10 rounded-2xl bg-primary/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-300"
             >
-              <Icon icon="lucide:info" class="w-4 h-4 text-primary" />
+              <Icon icon="lucide:sparkles" class="w-5 h-5 text-primary" />
             </div>
-            <span class="text-sm font-bold uppercase tracking-wider"
-              >Panduan Bermain</span
-            >
+            <div class="flex flex-col items-start gap-0.5">
+              <span
+                class="text-xs font-bold uppercase tracking-[0.2em] text-primary/70"
+                >Informasi</span
+              >
+              <span class="text-base font-bold text-foreground"
+                >Cara Bermain</span
+              >
+            </div>
           </div>
         </AccordionTrigger>
         <AccordionContent>
           <div
-            class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4 animate-in fade-in slide-in-from-top-4 duration-500"
+            class="grid grid-cols-1 sm:grid-cols-3 gap-5 mt-6 animate-in fade-in slide-in-from-top-4 duration-700 ease-out"
           >
-            <div
-              class="flex flex-col items-center text-center p-4 rounded-2xl bg-card backdrop-blur-sm border border-primary/10 shadow-sm"
+            <Card
+              class="group/card relative overflow-hidden flex flex-col items-center text-center rounded-[2rem] bg-card border-border/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <div
-                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-3 shadow-inner"
-              >
-                <Icon
-                  icon="lucide:plus-circle"
-                  class="w-6 h-6 text-primary-foreground"
-                />
-              </div>
-              <h3 class="text-sm sm:text-base font-bold text-foreground mb-1">
-                1. Masukkan Nominal
-              </h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">
-                Daftarkan rincian uang THR yang ingin Anda bagikan ke dalam
-                sistem.
-              </p>
-            </div>
+              <CardHeader class="pb-2">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-2 mx-auto shadow-lg shadow-primary/20 group-hover/card:rotate-12 transition-transform"
+                >
+                  <Icon
+                    icon="lucide:plus-circle"
+                    class="w-6 h-6 text-primary-foreground"
+                  />
+                </div>
+                <CardTitle class="text-base font-bold text-foreground">
+                  1. Masukkan Nominal
+                </CardTitle>
+                <CardDescription
+                  class="text-sm text-muted-foreground leading-relaxed"
+                >
+                  Daftarkan rincian uang THR yang ingin Anda bagikan.
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
-            <div
-              class="flex flex-col items-center text-center p-4 rounded-2xl bg-card backdrop-blur-sm border border-primary/10 shadow-sm"
+            <Card
+              class="group/card relative overflow-hidden flex flex-col items-center text-center rounded-[2rem] bg-card border-border/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <div
-                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-3 shadow-inner"
-              >
-                <Icon
-                  icon="lucide:gamepad-2"
-                  class="w-6 h-6 text-primary-foreground"
-                />
-              </div>
-              <h3 class="text-sm sm:text-base font-bold text-foreground mb-1">
-                2. Pilih Permainan
-              </h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">
-                Tentukan jenis permainan yang paling berkesan untuk dibagikan.
-              </p>
-            </div>
+              <CardHeader class="pb-2">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-2 mx-auto shadow-lg shadow-primary/20 group-hover/card:rotate-12 transition-transform"
+                >
+                  <Icon
+                    icon="lucide:layout-template"
+                    class="w-6 h-6 text-primary-foreground"
+                  />
+                </div>
+                <CardTitle class="text-base font-bold text-foreground">
+                  2. Pilih Mode
+                </CardTitle>
+                <CardDescription
+                  class="text-sm text-muted-foreground leading-relaxed"
+                >
+                  Tentukan jenis permainan yang paling seru untuk dimainkan.
+                </CardDescription>
+              </CardHeader>
+            </Card>
 
-            <div
-              class="flex flex-col items-center text-center p-4 rounded-2xl bg-card backdrop-blur-sm border border-primary/10 shadow-sm text-balance"
+            <Card
+              class="group/card relative overflow-hidden flex flex-col items-center text-center rounded-[2rem] bg-card border-border/40 hover:shadow-md hover:-translate-y-1 transition-all duration-300"
             >
-              <div
-                class="w-10 h-10 rounded-full bg-primary flex items-center justify-center mb-3 shadow-inner"
-              >
-                <Icon
-                  icon="lucide:gift"
-                  class="w-6 h-6 text-primary-foreground"
-                />
-              </div>
-              <h3 class="text-sm sm:text-base font-bold text-foreground mb-1">
-                3. Bagikan Kebahagiaan!
-              </h3>
-              <p class="text-xs text-muted-foreground leading-relaxed">
-                Mulai permainan dan biarkan keberuntungan menentukan hasilnya!
-              </p>
-            </div>
+              <CardHeader class="pb-2">
+                <div
+                  class="w-12 h-12 rounded-2xl bg-primary flex items-center justify-center mb-2 mx-auto shadow-lg shadow-primary/20 group-hover/card:rotate-12 transition-transform"
+                >
+                  <Icon
+                    icon="lucide:party-popper"
+                    class="w-6 h-6 text-primary-foreground"
+                  />
+                </div>
+                <CardTitle class="text-base font-bold text-foreground">
+                  3. Bagikan!
+                </CardTitle>
+                <CardDescription
+                  class="text-sm text-muted-foreground leading-relaxed text-balance"
+                >
+                  Mulai permainan dan buat suasana lebaran makin meriah!
+                </CardDescription>
+              </CardHeader>
+            </Card>
           </div>
         </AccordionContent>
       </AccordionItem>
@@ -152,12 +176,19 @@ const startGame = () => {
       ></div>
 
       <section class="relative z-10">
-        <h2
-          class="text-xl font-bold mb-4 flex items-center gap-2 text-foreground/90"
-        >
-          Daftar Nominal THR
-        </h2>
-        <NominalForm @add="addNominal" class="mb-6" />
+        <div class="flex items-center gap-2 mb-4">
+          <div class="w-1 h-6 bg-primary rounded-full"></div>
+          <h2
+            class="text-xl font-bold flex items-center gap-2 text-foreground/90"
+          >
+            Daftar Nominal THR
+          </h2>
+        </div>
+        <NominalForm
+          :nominals="config.nominals"
+          @add="addNominal"
+          class="mb-6"
+        />
 
         <div
           class="flex flex-wrap gap-2.5 min-h-[80px] p-5 bg-muted/40 rounded-2xl border-2 border-dashed border-muted-foreground/25"
